@@ -9,18 +9,28 @@ const ImageEditor: React.FC<{
   const [image, setImage] = useState<any>("");
   const editorRef = useRef();
 
-  const upload = () => {
+  const upload = async () => {
     let editor: any = editorRef.current;
-    console.log("imageToBeSent", editor.imageEditorInst.toDataURL());
+    await fetch("http://localhost:3002/image", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ image: editor.imageEditorInst.toDataURL() }),
+    });
   };
 
   const handleOnChange = (e: { target: { files: any } }) => {
     console.log(typeof e.target.files[0]);
     let file = e.target.files[0];
+    let filesize = e.target.files[0].size / 1024 / 1024;
     let reader = new FileReader();
     console.log(file);
-    if (file && file.type.match("image.*")) {
+    if (file && file.type.match("image.*") && filesize <= 2) {
       reader.readAsDataURL(file);
+    } else if (filesize >= 2) {
+      alert("Files smaller than 2MB please!");
     }
     reader.onloadend = (e) => {
       setImage("");

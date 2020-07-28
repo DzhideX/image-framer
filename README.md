@@ -1,1 +1,1 @@
-<h2> image framer application <h2>
+<h2> Image framer application <h2>
