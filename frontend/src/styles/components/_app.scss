@@ -46,16 +46,16 @@
   background-color: $dark-blue;
   display: none;
   border-radius: 0.5rem;
-}
-
-.app__image-editor--toggled {
-  @extend .app__image-editor;
   display: flex;
   flex-direction: column;
   align-items: center;
   animation: in-data 0.2s linear;
   justify-content: space-evenly;
   position: relative;
+}
+
+.app__image-editor--toggled {
+  @extend .app__image-editor;
 }
 
 .app__image-editor__close {
@@ -79,10 +79,49 @@
 .app__image-editor__header {
   @extend .app__header;
   animation: none;
+  margin-bottom: 0rem;
 }
 
 .app__image-editor__file-input {
-  appearance: none;
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+.app__image-editor__bottom {
+  width: 50%;
+  height: 2rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.app__image-editor__bottom__button {
+  width: 8rem;
+  height: 2rem;
+  background-color: $light-green;
+  color: $off-white;
+  font-family: "Wellfleet", cursive;
+  text-align: center;
+  display: grid;
+  align-items: center;
+  border-radius: 0.2rem;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.app__image-editor__bottom__button:hover {
+  background-color: $off-white;
+  color: $light-green;
+}
+
+.app__image-editor__bottom__button--toggled {
+  @extend .app__image-editor__bottom__button;
+  height: 4rem;
+  width: 15rem;
+  font-size: 1.6rem;
 }
 
 @keyframes in-data {
