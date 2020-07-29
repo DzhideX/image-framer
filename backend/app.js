@@ -14,7 +14,6 @@ app.post("/image", (req, res) => {
   let base64Data = req.body.image.replace(/^data:image\/png;base64,/, "");
   let bufferData = Buffer.from(base64Data, "base64");
   let frontendImage = images(bufferData);
-  console.log(frontendImage.width(), frontendImage.height());
   let finishedImage = frontendImage.draw(
     frame.width(frontendImage.width()).height(frontendImage.height()),
     0,
@@ -27,3 +26,5 @@ app.post("/image", (req, res) => {
 app.listen(3002, () => {
   console.log("listening");
 });
+
+module.exports = app;
