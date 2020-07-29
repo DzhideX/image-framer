@@ -14,6 +14,7 @@ const App: React.FC = () => {
       <button
         onClick={() => setEditorToggled(true)}
         className={`app__upload-button${editorToggled ? "--toggled" : ""}`}
+        data-testid="app-open-button"
       >
         Upload an image
       </button>

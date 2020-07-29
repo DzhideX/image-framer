@@ -96,6 +96,7 @@ const ImageEditor: React.FC<{
           id="file"
           onChange={handleOnChange}
           accept="image/png, image/jpeg"
+          data-testid="choose-file-button"
         />
         <label
           className={`image-editor__bottom__button${image ? "" : "--toggled"}`}

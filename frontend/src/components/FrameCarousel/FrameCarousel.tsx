@@ -22,6 +22,7 @@ const FrameCarousel: React.FC<{
         <img alt="frame 0" src={Frame0} />
       </div>
       <div
+        data-testid="test-frame"
         className={`frame-carousel__item${activeFrame === 1 ? "--active" : ""}`}
         onClick={() => {
           setActiveFrame(1);
