@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: false, limit: 2000000 }));
 app.use(bodyParser.json({ limit: 2000000 }));
 
 app.post("/image", (req, res) => {
-  const frame = images("./gold-frame.png");
+  const frame = images(`./images/frame${req.body.frameNumber}.png`);
   let base64Data = req.body.image.replace(/^data:image\/png;base64,/, "");
   let bufferData = Buffer.from(base64Data, "base64");
   let frontendImage = images(bufferData);

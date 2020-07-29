@@ -4,8 +4,9 @@ import "tui-image-editor/dist/tui-image-editor.css";
 import IE from "@toast-ui/react-image-editor";
 
 const ImageEditor: React.FC<{
-  setEditorToggled: any;
-}> = ({ setEditorToggled }) => {
+  setEditorToggled: (value: boolean | ((prevVar: boolean) => boolean)) => void;
+  frame: number;
+}> = ({ setEditorToggled, frame }) => {
   const [image, setImage] = useState<any>("");
   const editorRef = useRef();
 
@@ -17,7 +18,10 @@ const ImageEditor: React.FC<{
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ image: editor.imageEditorInst.toDataURL() }),
+      body: JSON.stringify({
+        image: editor.imageEditorInst.toDataURL(),
+        frameNumber: frame,
+      }),
     });
   };
 
@@ -39,16 +43,16 @@ const ImageEditor: React.FC<{
   };
 
   return (
-    <div className={`app__image-editor`}>
-      <div className="app__image-editor__close">
+    <div className="image-editor">
+      <div className="image-editor__close">
         <p
           onClick={() => setEditorToggled(false)}
-          className="app__image-editor__close__button"
+          className="image-editor__close__button"
         >
           X
         </p>
       </div>
-      <h2 className="app__image-editor__header">imageFramer</h2>
+      <h2 className="image-editor__header">imageFramer</h2>
       {image && (
         <IE
           ref={editorRef}
@@ -80,9 +84,9 @@ const ImageEditor: React.FC<{
           usageStatistics={true}
         />
       )}
-      <div className="app__image-editor__bottom">
+      <div className="image-editor__bottom">
         <input
-          className="app__image-editor__file-input"
+          className="image-editor__file-input"
           type="file"
           name="file"
           id="file"
@@ -90,9 +94,7 @@ const ImageEditor: React.FC<{
           accept="image/png, image/jpeg"
         />
         <label
-          className={`app__image-editor__bottom__button${
-            image ? "" : "--toggled"
-          }`}
+          className={`image-editor__bottom__button${image ? "" : "--toggled"}`}
           htmlFor="file"
         >
           Choose a file
@@ -100,15 +102,12 @@ const ImageEditor: React.FC<{
         {image && (
           <>
             <button
-              className="app__image-editor__bottom__button"
+              className="image-editor__bottom__button"
               onClick={() => setImage("")}
             >
               Delete File
             </button>
-            <button
-              onClick={upload}
-              className="app__image-editor__bottom__button"
-            >
+            <button onClick={upload} className="image-editor__bottom__button">
               Upload Image
             </button>
           </>

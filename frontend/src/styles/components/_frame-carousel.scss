@@ -1,0 +1,38 @@
+.frame-carousel {
+  height: 50rem;
+  width: 15rem;
+  background-color: $dark-blue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: in-data 0.2s linear;
+  margin-left: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  overflow-y: scroll;
+  padding-bottom: 1rem;
+}
+
+.frame-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.frame-carousel__item {
+  width: 13rem;
+  padding: 0.5rem 0;
+  background-color: $off-white;
+  display: grid;
+  place-items: center;
+  margin-top: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  img {
+    width: 12rem;
+  }
+}
+
+.frame-carousel__item--active {
+  @extend .frame-carousel__item;
+  padding: 0.3rem 0;
+  border: 0.2rem solid rgb(248, 110, 110);
+}

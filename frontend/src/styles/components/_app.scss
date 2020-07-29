@@ -8,6 +8,11 @@
   flex-direction: column;
 }
 
+.app--toggled {
+  @extend .app;
+  flex-direction: row;
+}
+
 .app__header {
   font-family: "Nunito", sans-serif;
   font-family: "Wellfleet", cursive;
@@ -38,90 +43,6 @@
 .app__upload-button--toggled {
   @extend .app__upload-button;
   display: none;
-}
-
-.app__image-editor {
-  width: 70rem;
-  height: 50rem;
-  background-color: $dark-blue;
-  display: none;
-  border-radius: 0.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  animation: in-data 0.2s linear;
-  justify-content: space-evenly;
-  position: relative;
-}
-
-.app__image-editor--toggled {
-  @extend .app__image-editor;
-}
-
-.app__image-editor__close {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  height: 2rem;
-  padding-right: 0.7rem;
-  justify-self: flex-start;
-  position: absolute;
-  top: 0;
-}
-
-.app__image-editor__close__button {
-  color: $off-white;
-  margin: 0;
-  cursor: pointer;
-}
-
-.app__image-editor__header {
-  @extend .app__header;
-  animation: none;
-  margin-bottom: 0rem;
-}
-
-.app__image-editor__file-input {
-  width: 0.1px;
-  height: 0.1px;
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  z-index: -1;
-}
-.app__image-editor__bottom {
-  width: 50%;
-  height: 2rem;
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.app__image-editor__bottom__button {
-  width: 8rem;
-  height: 2rem;
-  background-color: $light-green;
-  color: $off-white;
-  font-family: "Wellfleet", cursive;
-  text-align: center;
-  display: grid;
-  align-items: center;
-  border-radius: 0.2rem;
-  border: none;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-.app__image-editor__bottom__button:hover {
-  background-color: $off-white;
-  color: $light-green;
-}
-
-.app__image-editor__bottom__button--toggled {
-  @extend .app__image-editor__bottom__button;
-  height: 4rem;
-  width: 15rem;
-  font-size: 1.6rem;
 }
 
 @keyframes in-data {
