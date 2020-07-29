@@ -19,7 +19,7 @@ const FrameCarousel: React.FC<{
           setFrame(0);
         }}
       >
-        <img src={Frame0} />
+        <img alt="frame 0" src={Frame0} />
       </div>
       <div
         className={`frame-carousel__item${activeFrame === 1 ? "--active" : ""}`}
@@ -28,7 +28,7 @@ const FrameCarousel: React.FC<{
           setFrame(1);
         }}
       >
-        <img src={Frame1} />
+        <img alt="frame 1" src={Frame1} />
       </div>
       <div
         className={`frame-carousel__item${activeFrame === 2 ? "--active" : ""}`}
@@ -37,7 +37,7 @@ const FrameCarousel: React.FC<{
           setFrame(2);
         }}
       >
-        <img src={Frame2} />
+        <img alt="frame 2" src={Frame2} />
       </div>
       <div
         className={`frame-carousel__item${activeFrame === 3 ? "--active" : ""}`}
@@ -46,7 +46,7 @@ const FrameCarousel: React.FC<{
           setFrame(3);
         }}
       >
-        <img src={Frame3} />
+        <img alt="frame 3" src={Frame3} />
       </div>
       <div
         className={`frame-carousel__item${activeFrame === 4 ? "--active" : ""}`}
@@ -55,7 +55,7 @@ const FrameCarousel: React.FC<{
           setFrame(4);
         }}
       >
-        <img src={Frame4} />
+        <img alt="frame 4" src={Frame4} />
       </div>
     </div>
   );

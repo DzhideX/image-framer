@@ -11,6 +11,11 @@
 .app--toggled {
   @extend .app;
   flex-direction: row;
+  @media screen and (max-width: 700px) {
+    flex-direction: column;
+    padding: 1rem 0;
+    justify-content: unset;
+  }
 }
 
 .app__header {
@@ -20,6 +25,9 @@
   margin-bottom: 2rem;
   font-size: 3rem;
   animation: in-data 0.2s linear;
+  @media screen and (max-width: 350px) {
+    font-size: 1.5rem;
+  }
 }
 
 .app__header--toggled {
@@ -38,6 +46,11 @@
   border-radius: 0.3rem;
   animation: in-data 0.2s linear;
   cursor: pointer;
+  @media screen and (max-width: 350px) {
+    height: 2.5rem;
+    width: 7rem;
+    font-size: 0.7rem;
+  }
 }
 
 .app__upload-button--toggled {

@@ -1,5 +1,5 @@
 .frame-carousel {
-  height: 50rem;
+  height: 85%;
   width: 15rem;
   background-color: $dark-blue;
   display: flex;
@@ -11,6 +11,22 @@
   border-bottom-right-radius: 0.5rem;
   overflow-y: scroll;
   padding-bottom: 1rem;
+  @media screen and (max-width: 1150px) {
+    width: 12rem;
+  }
+  @media screen and (max-width: 700px) {
+    flex-direction: row;
+    height: 8rem;
+    width: 30rem;
+    margin-top: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    overflow-y: unset;
+    overflow-x: scroll;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0.5rem;
+    margin-left: 0rem;
+  }
 }
 
 .frame-carousel::-webkit-scrollbar {
@@ -21,13 +37,28 @@
   width: 13rem;
   padding: 0.5rem 0;
   background-color: $off-white;
-  display: grid;
-  place-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-top: 1rem;
   border-radius: 0.5rem;
   cursor: pointer;
   img {
     width: 12rem;
+  }
+  @media screen and (max-width: 1150px) {
+    width: 10rem;
+    img {
+      width: 8rem;
+    }
+  }
+  @media screen and (max-width: 700px) {
+    height: 5rem;
+    width: 6rem;
+    margin-right: 1rem;
+    img {
+      max-width: 4rem;
+    }
   }
 }
 
@@ -35,4 +66,7 @@
   @extend .frame-carousel__item;
   padding: 0.3rem 0;
   border: 0.2rem solid rgb(248, 110, 110);
+  @media screen and (max-width: 700px) {
+    border: 0.1rem solid rgb(248, 110, 110);
+  }
 }

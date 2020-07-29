@@ -1,6 +1,6 @@
 .image-editor {
   width: 55rem;
-  height: 50rem;
+  height: 85%;
   background-color: $dark-blue;
   display: none;
   border-top-left-radius: 0.5rem;
@@ -11,6 +11,14 @@
   animation: in-data 0.2s linear;
   justify-content: space-evenly;
   position: relative;
+  @media screen and (max-width: 1150px) {
+    width: 30rem;
+  }
+  @media screen and (max-width: 700px) {
+    border-bottom-left-radius: 0rem;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+  }
 }
 
 .image-editor--toggled {
@@ -59,6 +67,9 @@
   height: 2rem;
   display: flex;
   justify-content: space-evenly;
+  @media screen and (max-width: 1150px) {
+    width: 75%;
+  }
 }
 
 .image-editor__bottom__button {
@@ -74,6 +85,11 @@
   border: none;
   font-size: 1rem;
   cursor: pointer;
+  @media screen and (max-width: 1150px) {
+    font-size: 0.7rem;
+    width: 6rem;
+    height: 1.5rem;
+  }
 }
 
 .image-editor__bottom__button:hover {

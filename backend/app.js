@@ -21,6 +21,7 @@ app.post("/image", (req, res) => {
     0
   );
   finishedImage.save("output.jpg");
+  res.status(200).send();
 });
 
 app.listen(3002, () => {

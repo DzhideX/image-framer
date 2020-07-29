@@ -12,7 +12,7 @@ const ImageEditor: React.FC<{
 
   const upload = async () => {
     let editor: any = editorRef.current;
-    await fetch("http://localhost:3002/image", {
+    const res = await fetch("http://localhost:3002/image", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -23,6 +23,11 @@ const ImageEditor: React.FC<{
         frameNumber: frame,
       }),
     });
+    if (res.status === 200) {
+      alert(
+        "Picture successfully framed! Check backend folder of the project."
+      );
+    }
   };
 
   const handleOnChange = (e: { target: { files: any } }) => {
@@ -34,9 +39,9 @@ const ImageEditor: React.FC<{
     if (file && file.type.match("image.*") && filesize <= 2) {
       reader.readAsDataURL(file);
     } else if (filesize >= 2) {
-      alert("Files smaller than 2MB please!");
+      alert("Only files smaller than 2MB allowed!");
     }
-    reader.onloadend = (e) => {
+    reader.onloadend = () => {
       setImage("");
       setImage(reader.result);
     };
@@ -52,7 +57,6 @@ const ImageEditor: React.FC<{
           X
         </p>
       </div>
-      <h2 className="image-editor__header">imageFramer</h2>
       {image && (
         <IE
           ref={editorRef}
@@ -70,8 +74,8 @@ const ImageEditor: React.FC<{
             menu: ["flip", "crop", "rotate"],
             initMenu: "filter",
             uiSize: {
-              width: "50rem",
-              height: "35rem",
+              width: "90%",
+              height: "80%",
             },
             menuBarPosition: "bottom",
           }}
